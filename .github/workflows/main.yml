@@ -19,4 +19,4 @@ jobs:
         run: npm install --global surge
 
       - name: Deploying using surge
-        run: surge ./ mode-changer.sh --token ${{ secrets.token }}
+        run: surge ./ mode-changer.surge.sh --token ${{ secrets.token }}
