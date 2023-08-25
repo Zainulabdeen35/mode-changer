@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-
+import Menu from './menu';
 function App() {
+
+  let [defaultmode, changemode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className= {`${defaultmode? 'darkmode': 'lightmode'}`}>
+        <Menu/>
+      <br/>
+        <button onClick={()=> changemode(defaultmode=true)}> Dark Mode</button>
+        <button  onClick={()=> changemode(defaultmode=false)}> light Mode</button>
     </div>
+    
   );
 }
 
