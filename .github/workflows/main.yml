@@ -1,0 +1,22 @@
+name: material
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Installing Node
+        uses: actions/setup-node@v2-beta
+
+      - name: Installing surge
+        run: npm install --global surge
+
+      - name: Deploying using surge
+        run: surge ./ mode-changer.sh --token ${{ secrets.token }}
